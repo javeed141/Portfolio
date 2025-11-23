@@ -1,0 +1,50 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Theme overrides & custom classes */
+:root{
+  --neon-aqua: #06b6d4;
+  --neon-pink: #ff3b8a;
+  --neon-green: #14ffec;
+  --card-bg: rgba(13,18,30,0.6);
+}
+
+/* custom card look for code blocks */
+.code-card {
+  background: linear-gradient(180deg, rgba(12,17,34,0.7), rgba(6,8,20,0.65));
+  border-radius: 12px;
+  border: 1px solid rgba(124,58,237,0.12);
+  box-shadow: 0 8px 30px rgba(2,6,23,0.6);
+}
+
+/* orbit rotation */
+@keyframes orbit-rotate {
+  from { transform: rotate(0deg); }
+  to   { transform: rotate(360deg); }
+}
+.animate-orbit {
+  animation-name: orbit-rotate;
+  animation-timing-function: linear;
+  animation-iteration-count: infinite;
+  opacity: .55;
+}
+
+/* subtle sun pulse */
+@keyframes sun-pulse {
+  0% { transform: scale(1); opacity: .98; }
+  50% { transform: scale(1.02); opacity: 1; }
+  100% { transform: scale(1); opacity: .98; }
+}
+.sun-pulse { animation: sun-pulse 4s ease-in-out infinite; }
+
+/* hover effects for planets */
+.planet-btn:hover .planet-circle { transform: scale(1.08); box-shadow: 0 12px 28px rgba(3,7,18,0.34); }
+
+/* small responsive tweaks */
+@media (max-width: 768px) {
+  .animate-orbit { display: none; }
+}
