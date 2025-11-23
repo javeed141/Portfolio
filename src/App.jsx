@@ -7,6 +7,8 @@ import Footer from "./components/Footer";
 import HeroSection from "./components/pages/HeroSection";
 import ThemeContext from "./context/ThemeContext";
 import Skills from "./components/pages/Skills";
+import Education from "./components/Education/Education";
+import Contact from "./components/contact/Contact";
 
 const cls = (...args) => args.filter(Boolean).join(" ");
 
@@ -26,7 +28,9 @@ export default function App() {
       <HeroSection />
       <About />
       <Skills />
+      <Education />
       <Projects />
+      <Contact />
       {/* <Footer /> */}
     </div>
   );

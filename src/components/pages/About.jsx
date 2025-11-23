@@ -35,7 +35,7 @@ export default function AboutSection() {
         <span
           className={cls(
             colors.sideBg,
-            "w-fit rotate-90 p-2 px-5 text-xl rounded-md"
+            "w-fit rotate-90 p-2 px-5 mt-5 text-xl rounded-md"
           )}
         >
           ABOUT ME

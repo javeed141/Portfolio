@@ -43,7 +43,7 @@ const Skills = () => {
   ];
 
   return (
-    <>
+    <div id="skills">
       <h2 className={`font-bold text-6xl md:text-8xl mt-32 w-full text-center mb-12 ${colors.title}`}>
         Skills
       </h2>
@@ -87,7 +87,7 @@ const Skills = () => {
           ))}
         </div>
       </div>
-    </>
+    </div>
   );
 };
 
