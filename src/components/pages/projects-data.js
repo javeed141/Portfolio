@@ -25,7 +25,8 @@ export const projectsData = [
       "Designed an interactive emoji-based memory game featuring shuffled emojis and stateful game logic.",
     github: "https://github.com/javeed999/emoji-memory",
     image: "/project-imgs/emoji.png"
-  }, {
+  },
+  {
     name: "Menmory",
     tools: ["React.js", "JavaScript"],
     role: "Frontend Engineer",
@@ -33,6 +34,24 @@ export const projectsData = [
       "Designed an interactive emoji-based memory game featuring shuffled emojis and stateful game logic.",
     github: "https://github.com/javeed999/emoji-memory",
     image: "/project-imgs/emoji.png"
-  }
-  
+  },
+  {
+    name: "CiviQ — Civic Issue Reporting System",
+    tools: ["React", "Tailwind CSS", "Node.js", "Express.js", "MongoDB", "JWT", "Multer"],
+    role: "Full-Stack Developer",
+    description:
+      "A full-stack civic management system that lets citizens report issues, track status, and access resolution updates, while admins assign and employees resolve tasks in real time.",
+    github: "https://github.com/yourusername/CiviQ", // update if needed
+    image: "/project-imgs/civiq.png"
+  },
+  {
+  name: "Time Management Software (TMS)",
+  tools: ["React", "Vite", "Node.js", "Express", "MongoDB", "Firebase", "JWT"],
+  role: "Full-Stack Developer",
+  description:
+    "Developed a full-stack time management system featuring scheduling, role-based dashboards, executive–secretary workflows, and server-side notification services.",
+  github: "https://github.com/yourusername/Time-Management-Software", // update with your repo link
+  image: "/project-imgs/tms.png" // update to your image path
+}
+
 ];

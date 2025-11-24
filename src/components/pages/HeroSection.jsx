@@ -54,8 +54,8 @@ export default function HeroSection() {
       <Container>
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-10 lg:gap-16 items-center">
           
-          {/* LEFT CONTENT */}
-          <div className="flex flex-col items-start justify-center text-center lg:text-left">
+          {/* LEFT CONTENT → Should appear second on mobile */}
+          <div className="order-2 lg:order-1 flex flex-col items-start justify-center text-center lg:text-left">
             <h1
               className={cls(
                 "text-3xl sm:text-4xl lg:text-5xl font-extrabold leading-tight",
@@ -79,7 +79,7 @@ export default function HeroSection() {
               Full stack Developer 👨‍💻 | Test Automation Engineer ⚙️ | Tech Writer ✍️
             </p>
 
-            {/* SOCIAL ICONS → CENTER ON MOBILE */}
+            {/* SOCIAL ICONS */}
             <div className="flex items-center justify-center lg:justify-start gap-6 mt-6 w-full">
               <a
                 href={personalData.github}
@@ -107,7 +107,7 @@ export default function HeroSection() {
               </a>
             </div>
 
-            {/* BUTTONS (STACK ON MOBILE) */}
+            {/* BUTTONS */}
             <div className="mt-8 w-full flex flex-col sm:flex-row gap-4 sm:gap-6">
               <a
                 href={`mailto:${personalData.email}`}
@@ -120,8 +120,8 @@ export default function HeroSection() {
               </a>
 
               <a
-                href="project\\public\\Javeed_Resume.pdf"
-                download="Shaik_Javeed_Resume.pdf"
+                href="https://drive.google.com/file/d/1WOgkd_5zm_l3idJR-gTcNJInV0hiN5sT/view"
+                targe="_blank"
                 className={cls(
                   "inline-flex items-center justify-center gap-2 px-4 py-3 rounded-full font-semibold w-full sm:w-auto",
                   colors.resumeBtn
@@ -132,8 +132,8 @@ export default function HeroSection() {
             </div>
           </div>
 
-          {/* RIGHT SIDE → TERMINAL */}
-          <div className="w-full">
+          {/* RIGHT SIDE (TERMINAL) → Should appear first on mobile */}
+          <div className="order-1 lg:order-2 w-full">
             <div className={cls(colors.terminalWrapper)}>
               <div className="flex">
                 <div className={cls(colors.hrGradient)} />
@@ -159,6 +159,7 @@ export default function HeroSection() {
                 )}
               >
                 <code className={cls("font-mono leading-relaxed block", colors.codeText)}>
+                  {/* Code content unchanged */}
                   <div>
                     <span className={colors.primary}>const</span>{" "}
                     <span className={colors.heading}>coder</span>{" "}

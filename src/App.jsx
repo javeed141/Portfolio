@@ -31,7 +31,7 @@ export default function App() {
       <Education />
       <Projects />
       <Contact />
-      {/* <Footer /> */}
+      <Footer />
     </div>
   );
 }

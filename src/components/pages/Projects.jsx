@@ -111,9 +111,10 @@ const Projects = () => {
 
   return (
     <div
-      id="projects"
-      className="relative my-16 md:my-24 px-4 sm:px-6 lg:px-0 z-10"
-    >
+  id="projects"
+  className="relative my-10 md:my-16 px-4 sm:px-6 lg:px-0 z-10"
+>
+
       {/* STICKY HEADING */}
       <div className="sticky top-16 z-30 pb-6 lg:pb-10">
         

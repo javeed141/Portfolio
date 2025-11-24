@@ -3,15 +3,14 @@
 import React, { useContext, useState } from "react";
 import ThemeContext from "../../context/ThemeContext";
 import { FiMail, FiPhone, FiGithub, FiLinkedin } from "react-icons/fi";
+import emailjs from "emailjs-com";
 
 const Contact = () => {
   const { theme } = useContext(ThemeContext);
   const isDark = theme === "dark" || theme === true;
 
-  // Toast state
   const [toast, setToast] = useState("");
 
-  // Theme Colors
   const colors = {
     bg: isDark ? "bg-[#05081a]" : "bg-white",
     title: isDark ? "text-[#16f2b3]" : "text-purple-700",
@@ -23,30 +22,29 @@ const Contact = () => {
     borderColor: isDark ? "border-[#2b3a7a]" : "border-gray-300",
   };
 
-  // HANDLE MAILTO FORM SUBMISSION
- const handleMailSend = (e) => {
-  e.preventDefault();
+  //  HANDLE EMAIL SENDING USING EMAILJS
+  const handleMailSend = (e) => {
+    e.preventDefault();
 
-  const name = e.target.name.value.trim();
-  const email = e.target.email.value.trim();
-  const message = e.target.message.value.trim();
+    setToast("Sending...");
 
-  const mailto = `mailto:javeedshaik7346@gmail.com?subject=Message from ${encodeURIComponent(
-    name
-  )}&body=${encodeURIComponent(
-    `Name: ${name}\nEmail: ${email}\n\nMessage:\n${message}`
-  )}`;
+  emailjs.sendForm(
+  import.meta.env.VITE_EMAILJS_SERVICE_ID,
+  import.meta.env.VITE_EMAILJS_TEMPLATE_ID,
+  e.target,
+  import.meta.env.VITE_EMAILJS_PUBLIC_KEY
+)
 
-  // Open mail app
-  window.location.href = mailto;
+      .then(() => {
+        setToast("Message sent successfully!");
+        e.target.reset();
+      })
+      .catch(() => {
+        setToast("Failed to send message. Please try again later.");
+      });
 
-  // Clear fields
-  e.target.reset();
-
-  // Show toast
-  setToast("Opening your email app...");
-  setTimeout(() => setToast(""), 3000);
-};
+    setTimeout(() => setToast(""), 3500);
+  };
 
   return (
     <section
@@ -71,60 +69,55 @@ const Contact = () => {
       {/* Layout */}
       <div className="max-w-5xl mx-auto grid grid-cols-1 md:grid-cols-2 gap-10">
         
-        {/* LEFT SIDE */}
+        {/* Left Side (Info) */}
         <div className={`p-6 rounded-xl border shadow-lg ${colors.card}`}>
           <h3 className={`text-2xl font-semibold mb-6 ${colors.title}`}>
             Get in touch
           </h3>
 
           <div className="space-y-5">
-            {/* Email */}
             <div className="flex items-center gap-4">
               <FiMail className={`${colors.title}`} size={24} />
-              <a href="mailto:javeedshaik7346@gmail.com"
-                 className={`text-sm sm:text-base font-medium ${colors.text}`}>
+              <a
+                href="mailto:javeedshaik7346@gmail.com"
+                className={`text-sm sm:text-base font-medium ${colors.text}`}
+              >
                 javeedshaik7346@gmail.com
               </a>
             </div>
 
-            {/* Phone */}
-            <div className="flex items-center gap-4">
-              <FiPhone className={`${colors.title}`} size={24} />
-              <p className={`text-sm sm:text-base font-medium ${colors.text}`}>
-                {/* +91 80192 19778 */}
-              </p>
-            </div>
 
-            {/* GitHub */}
             <div className="flex items-center gap-4">
               <FiGithub className={`${colors.title}`} size={24} />
-              <a href="https://github.com/javeed999"
-                 target="_blank"
-                 className={`text-sm sm:text-base font-medium hover:underline ${colors.text}`}>
+              <a
+                href="https://github.com/javeed999"
+                target="_blank"
+                className={`text-sm sm:text-base font-medium hover:underline ${colors.text}`}
+              >
                 github.com/javeed999
               </a>
             </div>
 
-            {/* LinkedIn */}
             <div className="flex items-center gap-4">
               <FiLinkedin className={`${colors.title}`} size={24} />
-              <a href="https://linkedin.com/in/javeed-shaik-37a844315"
-                 target="_blank"
-                 className={`text-sm sm:text-base font-medium hover:underline ${colors.text}`}>
+              <a
+                href="https://linkedin.com/in/javeed-shaik-37a844315"
+                target="_blank"
+                className={`text-sm sm:text-base font-medium hover:underline ${colors.text}`}
+              >
                 linkedin.com/in/javeed-shaik-37a844315
               </a>
             </div>
           </div>
         </div>
 
-        {/* RIGHT SIDE FORM */}
+        {/* Right Side - Contact Form */}
         <div className={`p-6 rounded-xl border shadow-lg ${colors.card}`}>
           <h3 className={`text-2xl font-semibold mb-6 ${colors.title}`}>
             Send a message
           </h3>
 
           <form onSubmit={handleMailSend} className="space-y-5">
-
             <input
               type="text"
               name="name"
@@ -155,7 +148,6 @@ const Contact = () => {
             >
               Send Message
             </button>
-
           </form>
         </div>
       </div>

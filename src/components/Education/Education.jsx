@@ -60,7 +60,7 @@ export default function Education() {
   };
 
   return (
-    <section id="education" className="py-20 relative overflow-hidden">
+<section id="education" className="pt-20 pb-10 relative overflow-hidden">
       {/* 🎇 Dark mode neon glows */}
       {isDark && (
         <div className="absolute inset-0 -z-10">
@@ -71,7 +71,7 @@ export default function Education() {
 
       <Container>
         {/* Heading */}
-        <div className="text-center mb-16">
+        <div className="text-center mb-16 mt-10">
           <h2
             className={`text-4xl md:text-5xl font-bold tracking-tight ${colors.title}`}
           >

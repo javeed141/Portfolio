@@ -44,9 +44,12 @@ const Skills = () => {
 
   return (
     <div id="skills">
-      <h2 className={`font-bold text-6xl md:text-8xl mt-32 w-full text-center mb-12 ${colors.title}`}>
-        Skills
-      </h2>
+     <h2
+  className={`font-bold text-6xl md:text-8xl mt-20 w-full text-center mb-8 ${colors.title}`}
+>
+  Skills
+</h2>
+
 
       {/* Desktop circular layout */}
       <div className="hidden md:flex w-full h-screen items-center justify-center pointer-events-none">
