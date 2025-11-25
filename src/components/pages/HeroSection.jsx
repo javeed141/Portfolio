@@ -46,6 +46,7 @@ export default function HeroSection() {
 
   return (
     <section
+    id="home"
       className={cls(
         "relative flex flex-col items-center justify-between py-10 lg:py-16 transition-colors duration-300",
         theme === "dark" ? "text-white" : "text-gray-900"
@@ -76,7 +77,7 @@ export default function HeroSection() {
             </h1>
 
             <p className={cls("mt-5 sm:mt-6 max-w-lg text-base sm:text-lg", colors.sub)}>
-              Full stack Developer 👨‍💻 | Test Automation Engineer ⚙️ | Tech Writer ✍️
+Full Stack Developer 🧑‍💻 | Building Fast, Reliable Web Apps ⚡
             </p>
 
             {/* SOCIAL ICONS */}
@@ -121,7 +122,7 @@ export default function HeroSection() {
 
               <a
                 href="https://drive.google.com/file/d/1WOgkd_5zm_l3idJR-gTcNJInV0hiN5sT/view"
-                targe="_blank"
+                target="_blank"
                 className={cls(
                   "inline-flex items-center justify-center gap-2 px-4 py-3 rounded-full font-semibold w-full sm:w-auto",
                   colors.resumeBtn

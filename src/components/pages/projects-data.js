@@ -26,15 +26,15 @@ export const projectsData = [
     github: "https://github.com/javeed999/emoji-memory",
     image: "/project-imgs/emoji.png"
   },
-  {
-    name: "Menmory",
-    tools: ["React.js", "JavaScript"],
-    role: "Frontend Engineer",
-    description:
-      "Designed an interactive emoji-based memory game featuring shuffled emojis and stateful game logic.",
-    github: "https://github.com/javeed999/emoji-memory",
-    image: "/project-imgs/emoji.png"
-  },
+  // {
+  //   name: "Menmory",
+  //   tools: ["React.js", "JavaScript"],
+  //   role: "Frontend Engineer",
+  //   description:
+  //     "Designed an interactive emoji-based memory game featuring shuffled emojis and stateful game logic.",
+  //   github: "https://github.com/javeed999/emoji-memory",
+  //   image: "/project-imgs/emoji.png"
+  // },
   {
     name: "CiviQ — Civic Issue Reporting System",
     tools: ["React", "Tailwind CSS", "Node.js", "Express.js", "MongoDB", "JWT", "Multer"],

@@ -89,7 +89,12 @@ export default function Navbar() {
 
         {/* LOGO */}
         <div className={`text-2xl font-extrabold select-none ${navbarColors.brand}`}>
-          &lt; Shaik Javeed /&gt;
+<a
+  href="#home"
+  className={`text-2xl font-extrabold select-none cursor-pointer ${navbarColors.brand}`}
+>
+  &lt; Shaik Javeed /&gt;
+</a>
         </div>
 
         {/* DESKTOP NAV */}

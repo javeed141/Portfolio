@@ -79,11 +79,13 @@ export default function AboutSection() {
                 colors.imgRing
               )}
             >
-              <img
-                src={personalData.profile}
-                alt={personalData.name || "Profile"}
-                className="w-44 h-44 md:w-60 md:h-60 lg:w-[280px] lg:h-[280px] object-cover grayscale hover:grayscale-0"
-              />
+             <img
+  src={personalData.profile}
+  alt={personalData.name || "Profile"}
+  className="w-50 h-60 md:w-60 md:h-60 lg:w-[280px] lg:h-[300px] 
+  object-cover object-top grayscale hover:grayscale-0 "
+/>
+
             </div>
           </div>
         </div>
