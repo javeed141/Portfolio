@@ -59,7 +59,7 @@ export default function AboutSection() {
 
             <h2
               className={cls(
-                "text-2xl md:text-3xl font-semibold mb-4",
+                "text-2xl md:text-3xl font-semibold mb-2",
                 colors.title
               )}
             >
@@ -79,12 +79,33 @@ export default function AboutSection() {
                 colors.imgRing
               )}
             >
-             <img
-  src={personalData.profile}
-  alt={personalData.name || "Profile"}
-  className="w-50 h-60 md:w-60 md:h-60 lg:w-[280px] lg:h-[300px] 
-  object-cover object-top grayscale hover:grayscale-0 "
-/>
+<>
+  {/* Mobile image */}
+  <img
+    src="mobile_view_image_portfolio.png"   // ← dummy/mobile image (you will add this)
+    alt={personalData.name || "Profile"}
+    className="
+      block md:hidden
+      w-50 h-60
+      object-cover object-top
+      grayscale hover:grayscale-0
+    "
+  />
+
+  {/* Desktop/tablet image */}
+  <img
+    src={personalData.profile}   // ← existing desktop image
+    alt={personalData.name || "Profile"}
+    className="
+      hidden md:block
+      w-60 h-60 lg:w-[280px] lg:h-[300px]
+      object-cover object-top
+      grayscale hover:grayscale-0
+    "
+  />
+</>
+
+   
 
             </div>
           </div>
@@ -93,3 +114,10 @@ export default function AboutSection() {
     </section>
   );
 }
+    {/* <img
+  src={personalData.profile}
+  alt={personalData.name || "Profile"}
+  className="w-50 h-60 md:w-60 md:h-60 lg:w-[280px] lg:h-[300px] 
+  object-cover object-top grayscale hover:grayscale-0 "
+/> */}
+

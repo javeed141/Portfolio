@@ -38,30 +38,27 @@ export default function Education() {
   const { theme } = useContext(ThemeContext);
   const isDark = theme === "dark" || theme === true;
 
-  // ⚡ Attractive modern dark-mode palette
   const colors = {
     title: isDark ? "text-white" : "text-gray-900",
     subtitle: isDark ? "text-gray-300" : "text-gray-600",
-
-    // Light mode remains same, Dark mode gets neon glass upgrade
     cardBg: isDark
       ? "bg-[#0b0f1f]/80 backdrop-blur-xl border border-[#233269]/50 shadow-[0_0_20px_rgba(0,255,255,0.07)]"
       : "bg-white/70 backdrop-blur-lg border border-gray-200 shadow-md",
-
     neonBar: isDark
       ? "from-cyan-400 via-blue-500 to-purple-500"
       : "from-purple-500 to-pink-500",
-
     cgpaBg: isDark ? "bg-[#141c38]/70" : "bg-purple-100",
     cgpaText: isDark ? "text-purple-300" : "text-purple-700",
-
     periodBg: isDark ? "bg-cyan-500/15" : "bg-cyan-200",
     periodText: isDark ? "text-cyan-300" : "text-cyan-800",
   };
 
   return (
-<section id="education" className="pt-20 pb-10 relative overflow-hidden">
-      {/* 🎇 Dark mode neon glows */}
+    <section
+      id="education"
+      className="pt-2 pb-6 relative overflow-hidden"
+    >
+      {/* Dark mode glows */}
       {isDark && (
         <div className="absolute inset-0 -z-10">
           <div className="absolute w-72 h-72 bg-cyan-500/25 blur-[130px] rounded-full left-0 top-20"></div>
@@ -71,7 +68,7 @@ export default function Education() {
 
       <Container>
         {/* Heading */}
-        <div className="text-center mb-16 mt-10">
+        <div className="text-center mb-10 mt-2">
           <h2
             className={`text-4xl md:text-5xl font-bold tracking-tight ${colors.title}`}
           >
@@ -89,12 +86,12 @@ export default function Education() {
               key={edu.id}
               className={`relative rounded-2xl p-6 transition duration-300 hover:-translate-y-2 ${colors.cardBg}`}
             >
-              {/* Neon bar top */}
+              {/* Neon bar */}
               <div
                 className={`absolute top-0 left-0 w-full h-[4px] bg-gradient-to-r ${colors.neonBar} rounded-t-2xl`}
               ></div>
 
-              {/* Dummy Logo */}
+              {/* Logo */}
               <div className="flex justify-center mb-5">
                 <img
                   src={edu.logo}
@@ -103,7 +100,10 @@ export default function Education() {
                 />
               </div>
 
-              <h3 className={`text-xl font-semibold text-center mb-1 ${colors.title}`}>
+              {/* Degree */}
+              <h3
+                className={`text-xl font-semibold text-center mb-1 ${colors.title}`}
+              >
                 {edu.degree}
               </h3>
 
@@ -111,6 +111,7 @@ export default function Education() {
                 {edu.school}
               </p>
 
+              {/* Period */}
               <div className="flex justify-center mt-4">
                 <span
                   className={`px-4 py-1 rounded-full text-xs font-medium border ${colors.periodBg} ${colors.periodText}`}
@@ -119,7 +120,7 @@ export default function Education() {
                 </span>
               </div>
 
-              {/* CGPA Badge */}
+              {/* CGPA */}
               <div className="flex justify-center mt-3">
                 <span
                   className={`px-3 py-[6px] text-xs font-bold rounded-full border ${colors.cgpaBg} ${colors.cgpaText}`}
@@ -128,7 +129,9 @@ export default function Education() {
                 </span>
               </div>
 
-              <p className={`mt-4 text-sm leading-relaxed text-center ${colors.subtitle}`}>
+              <p
+                className={`mt-4 text-sm leading-relaxed text-center ${colors.subtitle}`}
+              >
                 {edu.highlight}
               </p>
             </div>
