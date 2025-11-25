@@ -56,7 +56,7 @@ export default function Education() {
   return (
     <section
       id="education"
-      className="pt-2 pb-6 relative overflow-hidden"
+      className="pt-2 pb-6 relative overflow-hidden xl:mt-[190px]"
     >
       {/* Dark mode glows */}
       {isDark && (
