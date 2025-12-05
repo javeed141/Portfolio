@@ -26,7 +26,7 @@ const educationList = [
   {
     id: 3,
     degree: "Schooling (SSC)",
-    period: "2008 – 2021",
+    period: "2009 – 2021",
     school: "Viswa Bharathi English Medium High School",
     logo: "https://cdn-icons-png.flaticon.com/512/1048/1048949.png",
     cgpa: "10.0",
