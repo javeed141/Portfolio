@@ -90,7 +90,7 @@ const Contact = () => {
             <div className="flex items-center gap-4">
               <FiGithub className={`${colors.title}`} size={24} />
               <a
-                href="https://github.com/javeed999"
+                href="https://github.com/javeed141"
                 target="_blank"
                 className={`text-sm sm:text-base font-medium hover:underline ${colors.text}`}
               >
