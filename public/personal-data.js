@@ -1,7 +1,7 @@
 export const personalData = {
   name: "Shaik Javeed",
   designation: "Software Developer",
-  github: "https://github.com/javeed999",
+  github: "https://github.com/javeed141",
   linkedIn: "https://www.linkedin.com/in/javeed-shaik-37a844315",
   facebook: "https://www.facebook.com/yourprofile",
   twitter: "https://twitter.com/yourprofile",

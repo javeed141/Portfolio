@@ -121,7 +121,7 @@ Full Stack Developer 🧑‍💻 | Building Fast, Reliable Web Apps ⚡
               </a>
 
               <a
-                href="https://drive.google.com/file/d/1-6M86AwdhpdqXA4OLCkxFYH3ph1ADOFO/view?usp=drive_open"
+                href="https://drive.google.com/file/d/1D8DMXc4bCM2N8uT0lff63XiWR4D4Khpa/view"
                 target="_blank"
                 className={cls(
                   "inline-flex items-center justify-center gap-2 px-4 py-3 rounded-full font-semibold w-full sm:w-auto",
