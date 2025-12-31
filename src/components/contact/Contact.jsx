@@ -94,7 +94,7 @@ const Contact = () => {
                 target="_blank"
                 className={`text-sm sm:text-base font-medium hover:underline ${colors.text}`}
               >
-                github.com/javeed999
+                github.com/javeed141
               </a>
             </div>
 
