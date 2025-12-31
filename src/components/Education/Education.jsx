@@ -38,21 +38,6 @@ export default function Education() {
   const { theme } = useContext(ThemeContext);
   const isDark = theme === "dark" || theme === true;
 
-  const colors = {
-    title: isDark ? "text-white" : "text-gray-900",
-    subtitle: isDark ? "text-gray-300" : "text-gray-600",
-    cardBg: isDark
-      ? "bg-[#0b0f1f]/80 backdrop-blur-xl border border-[#233269]/50 shadow-[0_0_20px_rgba(0,255,255,0.07)]"
-      : "bg-white/70 backdrop-blur-lg border border-gray-200 shadow-md",
-    neonBar: isDark
-      ? "from-cyan-400 via-blue-500 to-purple-500"
-      : "from-purple-500 to-pink-500",
-    cgpaBg: isDark ? "bg-[#141c38]/70" : "bg-purple-100",
-    cgpaText: isDark ? "text-purple-300" : "text-purple-700",
-    periodBg: isDark ? "bg-cyan-500/15" : "bg-cyan-200",
-    periodText: isDark ? "text-cyan-300" : "text-cyan-800",
-  };
-
   return (
     <section
       id="education"
@@ -70,11 +55,15 @@ export default function Education() {
         {/* Heading */}
         <div className="text-center mb-10 mt-2">
           <h2
-            className={`text-4xl md:text-5xl font-bold tracking-tight ${colors.title}`}
+            className="text-4xl md:text-5xl font-bold tracking-tight transition-colors"
+            style={{ color: 'var(--text-primary)' }}
           >
             Education
           </h2>
-          <p className={`mt-3 text-base md:text-lg ${colors.subtitle}`}>
+          <p 
+            className="mt-3 text-base md:text-lg transition-colors"
+            style={{ color: 'var(--text-secondary)' }}
+          >
             A journey of learning, improvement, and growth
           </p>
         </div>
@@ -84,11 +73,19 @@ export default function Education() {
           {educationList.map((edu) => (
             <div
               key={edu.id}
-              className={`relative rounded-2xl p-6 transition duration-300 hover:-translate-y-2 ${colors.cardBg}`}
+              className="relative rounded-2xl p-6 transition-all duration-300 hover:-translate-y-2 backdrop-blur-xl"
+              style={{
+                backgroundColor: 'var(--edu-card-bg)',
+                border: '1px solid var(--edu-card-border)',
+                boxShadow: 'var(--edu-card-shadow)',
+              }}
             >
               {/* Neon bar */}
               <div
-                className={`absolute top-0 left-0 w-full h-[4px] bg-gradient-to-r ${colors.neonBar} rounded-t-2xl`}
+                className="absolute top-0 left-0 w-full h-[4px] rounded-t-2xl"
+                style={{
+                  background: 'var(--edu-neon-bar)',
+                }}
               ></div>
 
               {/* Logo */}
@@ -102,19 +99,28 @@ export default function Education() {
 
               {/* Degree */}
               <h3
-                className={`text-xl font-semibold text-center mb-1 ${colors.title}`}
+                className="text-xl font-semibold text-center mb-1 transition-colors"
+                style={{ color: 'var(--text-primary)' }}
               >
                 {edu.degree}
               </h3>
 
-              <p className={`text-sm text-center ${colors.subtitle}`}>
+              <p 
+                className="text-sm text-center transition-colors"
+                style={{ color: 'var(--text-secondary)' }}
+              >
                 {edu.school}
               </p>
 
               {/* Period */}
               <div className="flex justify-center mt-4">
                 <span
-                  className={`px-4 py-1 rounded-full text-xs font-medium border ${colors.periodBg} ${colors.periodText}`}
+                  className="px-4 py-1 rounded-full text-xs font-medium border transition-colors"
+                  style={{
+                    backgroundColor: 'var(--edu-period-bg)',
+                    color: 'var(--edu-period-text)',
+                    borderColor: 'var(--edu-period-text)',
+                  }}
                 >
                   {edu.period}
                 </span>
@@ -123,14 +129,20 @@ export default function Education() {
               {/* CGPA */}
               <div className="flex justify-center mt-3">
                 <span
-                  className={`px-3 py-[6px] text-xs font-bold rounded-full border ${colors.cgpaBg} ${colors.cgpaText}`}
+                  className="px-3 py-[6px] text-xs font-bold rounded-full border transition-colors"
+                  style={{
+                    backgroundColor: 'var(--edu-cgpa-bg)',
+                    color: 'var(--edu-cgpa-text)',
+                    borderColor: 'var(--edu-cgpa-text)',
+                  }}
                 >
                   CGPA: {edu.cgpa}
                 </span>
               </div>
 
               <p
-                className={`mt-4 text-sm leading-relaxed text-center ${colors.subtitle}`}
+                className="mt-4 text-sm leading-relaxed text-center transition-colors"
+                style={{ color: 'var(--text-secondary)' }}
               >
                 {edu.highlight}
               </p>

@@ -28,6 +28,23 @@ export const projectsData = [
     image: "/project-imgs/civiq.png"
   },
   {
+    name: "Student Performance Prediction System",
+    tools: [
+      "Python",
+      "Scikit-learn",
+      "Pandas",
+      "NumPy",
+      "Flask",
+      "Jupyter Notebook"
+    ],
+    role: "Machine Learning Engineer",
+    description:
+      "End-to-end machine learning project to predict student academic performance using supervised learning. Includes data preprocessing, feature engineering, model training, evaluation, and Flask-based deployment for real-time predictions.",
+    github: "https://github.com/javeed999/student-performance-prediction",
+    image: "/project-imgs/student-performance.png"
+  },
+  
+  {
     name: "Time Management Software (TMS)",
     tools: [
       "React",

@@ -1,16 +1,118 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
-@tailwind base;
-@tailwind components;
-@tailwind utilities;
 
 /* Theme overrides & custom classes */
-:root{
+:root {
   --neon-aqua: #06b6d4;
   --neon-pink: #ff3b8a;
   --neon-green: #14ffec;
   --card-bg: rgba(13,18,30,0.6);
+}
+
+/* Light Theme Variables */
+[data-theme="light"] {
+  /* Background Colors */
+  --bg-primary: #ffffff;
+  --bg-secondary: #f9fafb;
+  --bg-tertiary: #f3f4f6;
+  --bg-card: #ffffff;
+  --bg-card-gradient-from: #ffffff;
+  --bg-card-gradient-to: #f3f4f6;
+  
+  /* Text Colors */
+  --text-primary: #111827;
+  --text-secondary: #374151;
+  --text-tertiary: #6b7280;
+  --text-accent: #7c3aed;
+  
+  /* Border Colors */
+  --border-primary: #d1d5db;
+  --border-secondary: #e5e7eb;
+  --border-accent: #9333ea;
+  
+  /* Navbar */
+  --navbar-bg: rgba(255, 255, 255, 0.8);
+  --navbar-border: #d1d5db;
+  --navbar-brand: #4f46e5;
+  --navbar-link: #374151;
+  --navbar-link-hover: #4f46e5;
+  --navbar-toggle: #4f46e5;
+  --navbar-toggle-hover: #4338ca;
+  --navbar-mobile-bg: #ffffff;
+  
+  /* Section Backgrounds */
+  --section-bg: #ffffff;
+  --section-bg-alt: #f9fafb;
+  
+  /* Education Cards */
+  --edu-card-bg: rgba(255, 255, 255, 0.7);
+  --edu-card-border: #e5e7eb;
+  --edu-card-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+  --edu-neon-bar: linear-gradient(to right, #a855f7, #ec4899);
+  --edu-cgpa-bg: #f3e8ff;
+  --edu-cgpa-text: #6b21a8;
+  --edu-period-bg: #cffafe;
+  --edu-period-text: #164e63;
+}
+
+/* Dark Theme Variables */
+[data-theme="dark"] {
+  /* Background Colors */
+  --bg-primary: #070810;
+  --bg-secondary: #0a0d1a;
+  --bg-tertiary: #0f172a;
+  --bg-card: #0d1224;
+  --bg-card-gradient-from: #0d1224;
+  --bg-card-gradient-to: #0a0d37;
+  
+  /* Text Colors */
+  --text-primary: #f1f5f9;
+  --text-secondary: #cbd5e1;
+  --text-tertiary: #94a3b8;
+  --text-accent: #16f2b3;
+  
+  /* Border Colors */
+  --border-primary: rgba(27, 44, 104, 0.63);
+  --border-secondary: #1e293b;
+  --border-accent: #7c3aed;
+  
+  /* Navbar */
+  --navbar-bg: rgba(15, 23, 42, 0.8);
+  --navbar-border: #1e293b;
+  --navbar-brand: #a5b4fc;
+  --navbar-link: #cbd5e1;
+  --navbar-link-hover: #f472b6;
+  --navbar-toggle: #fde047;
+  --navbar-toggle-hover: #facc15;
+  --navbar-mobile-bg: #0f172a;
+  
+  /* Section Backgrounds */
+  --section-bg: #07102a;
+  --section-bg-alt: #0a0d1a;
+  
+  /* Education Cards */
+  --edu-card-bg: rgba(11, 15, 31, 0.8);
+  --edu-card-border: rgba(35, 50, 105, 0.5);
+  --edu-card-shadow: 0 0 20px rgba(0, 255, 255, 0.07);
+  --edu-neon-bar: linear-gradient(to right, #22d3ee, #3b82f6, #a855f7);
+  --edu-cgpa-bg: rgba(20, 28, 56, 0.7);
+  --edu-cgpa-text: #c084fc;
+  --edu-period-bg: rgba(6, 182, 212, 0.15);
+  --edu-period-text: #67e8f9;
+}
+
+/* Apply theme background to body/html */
+html {
+  background-color: var(--bg-primary);
+  color: var(--text-primary);
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+body {
+  background-color: var(--bg-primary);
+  color: var(--text-primary);
+  transition: background-color 0.3s ease, color 0.3s ease;
 }
 
 /* custom card look for code blocks */
@@ -43,6 +145,25 @@
 
 /* hover effects for planets */
 .planet-btn:hover .planet-circle { transform: scale(1.08); box-shadow: 0 12px 28px rgba(3,7,18,0.34); }
+
+/* Navbar hover effects using CSS variables */
+.navbar-link {
+  color: var(--navbar-link);
+  transition: color 0.2s ease;
+}
+
+.navbar-link:hover {
+  color: var(--navbar-link-hover);
+}
+
+.navbar-toggle {
+  color: var(--navbar-toggle);
+  transition: color 0.2s ease;
+}
+
+.navbar-toggle:hover {
+  color: var(--navbar-toggle-hover);
+}
 
 /* small responsive tweaks */
 @media (max-width: 768px) {
