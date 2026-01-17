@@ -9,6 +9,9 @@
   --neon-green: #14ffec;
   --card-bg: rgba(13,18,30,0.6);
 }
+* {
+  cursor: none;
+}
 
 /* Light Theme Variables */
 [data-theme="light"] {

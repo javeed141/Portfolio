@@ -208,6 +208,7 @@ import React, { useContext } from "react";
 import { motion } from "framer-motion";
 import ThemeContext from "../../context/ThemeContext";
 
+/* -------------------- ORBIT SKILL -------------------- */
 const Skill = ({ name, x, y, colors }) => (
   <motion.div
     className={`absolute flex items-center justify-center rounded-full font-semibold py-3 px-6 shadow-md ${colors.skillBg} ${colors.skillText}`}
@@ -233,6 +234,27 @@ const Skills = () => {
       : "repeating-radial-gradient(rgba(0,0,0,0.25) 2px, #fafafa 5px, #fafafa 100px)",
   };
 
+  /* -------------------- DESKTOP ORBIT DATA -------------------- */
+  const ring1 = [
+    { name: "React.js", x: "12vw", y: "-8vw" },
+    { name: "Node.js", x: "-12vw", y: "-8vw" },
+    { name: "LangChain", x: "-15vw", y: "6vw" },
+    { name: "MongoDB", x: "15vw", y: "6vw" },
+  ];
+
+  const ring2 = [
+    { name: "LangGraph", x: "24vw", y: "-2vw" },
+    { name: "AutoGen", x: "20vw", y: "14vw" },
+    { name: "Express.js", x: "-20vw", y: "14vw" },
+    { name: "JavaScript", x: "-24vw", y: "-2vw" },
+  ];
+
+  const ring3 = [
+    { name: "Supabase", x: "0vw", y: "-20vw" },
+    { name: "Python", x: "0vw", y: "22vw" },
+  ];
+
+  /* -------------------- MOBILE SKILLS (UNCHANGED) -------------------- */
   const mobileSkills = [
     {
       title: "Front-End",
@@ -276,14 +298,46 @@ const Skills = () => {
 
   return (
     <div id="skills" className="pt-6 pb-16">
-      <h2 className={`font-bold text-4xl md:text-8xl text-center mb-12 ${colors.title}`}>
+      {/* TITLE */}
+      <h2 className={`font-bold text-4xl md:text-8xl text-center mb-12 md:mb-[180px] ${colors.title}`}>
         Skills
       </h2>
 
+      {/* ==================== DESKTOP ORBIT ==================== */}
+      <div className="hidden md:flex w-full h-[65vh] items-center justify-center relative">
+        <div
+          className="relative rounded-full flex items-center justify-center w-[90vw] h-[50vw]"
+          style={{ background: colors.radialBg }}
+        >
+          {/* Center */}
+          <motion.div
+            whileHover={{ scale: 1.05 }}
+            className={`flex items-center justify-center rounded-full p-8 font-semibold shadow-lg ${colors.skillBg} ${colors.skillText}`}
+          >
+            Developer
+          </motion.div>
+
+          {ring1.map((s, i) => (
+            <Skill key={`r1-${i}`} {...s} colors={colors} />
+          ))}
+          {ring2.map((s, i) => (
+            <Skill key={`r2-${i}`} {...s} colors={colors} />
+          ))}
+          {ring3.map((s, i) => (
+            <Skill key={`r3-${i}`} {...s} colors={colors} />
+          ))}
+        </div>
+      </div>
+
+      {/* ==================== MOBILE GRID (UNCHANGED) ==================== */}
       <div className="md:hidden px-5 space-y-14">
         {mobileSkills.map((section, idx) => (
           <div key={idx}>
-            <h3 className={`text-center text-lg font-semibold mb-6 ${isDark ? "text-[#9BE7FF]" : "text-gray-800"}`}>
+            <h3
+              className={`text-center text-lg font-semibold mb-6 ${
+                isDark ? "text-[#9BE7FF]" : "text-gray-800"
+              }`}
+            >
               {section.title}
             </h3>
 
@@ -308,7 +362,11 @@ const Skills = () => {
                       alt={skill.name}
                       className="w-10 h-10 object-contain"
                     />
-                    <span className={`text-[11px] ${isDark ? "text-white" : "text-gray-800"}`}>
+                    <span
+                      className={`text-[11px] ${
+                        isDark ? "text-white" : "text-gray-800"
+                      }`}
+                    >
                       {skill.name}
                     </span>
                   </div>
