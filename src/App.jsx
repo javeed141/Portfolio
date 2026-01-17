@@ -8,6 +8,7 @@ import HeroSection from "./components/pages/HeroSection";
 import Skills from "./components/pages/Skills";
 import Education from "./components/Education/Education";
 import Contact from "./components/contact/Contact";
+import Hello from "./components/pages/hello";
 
 export default function App() {
   return (
@@ -26,6 +27,7 @@ export default function App() {
       <Projects />
       <Contact />
       <Footer />
+      {/* <Hello /> */}
     </div>
   );
 }
