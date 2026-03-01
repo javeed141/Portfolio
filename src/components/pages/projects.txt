@@ -1,0 +1,54 @@
+🏙️ CiviQ — Civic Issue Reporting & Management System
+✅ What is CiviQ?
+
+CiviQ is a full-stack MERN web application that allows citizens to report civic issues (such as road damage, garbage, lighting problems, and infrastructure complaints), upload images and location details, and track resolution status in real time.
+
+The system provides role-based dashboards for Users, Admins, and Employees to manage issue reporting, assignment, tracking, and resolution workflows efficiently. It is designed to bring transparency and accountability to civic issue management using modern web technologies.
+
+🎯 Why CiviQ Was Built
+
+Civic complaints are often handled through manual or fragmented systems, leading to:
+
+Poor transparency in issue resolution
+
+No real-time status tracking
+
+Delayed assignment to field staff
+
+Lack of structured workflows
+
+No centralized reporting dashboard
+
+CiviQ was built to solve these problems by providing:
+
+📍 Structured issue reporting with geo-location
+
+🖼️ Image-based proof submission
+
+🔐 Secure role-based access (User/Admin/Employee)
+
+📊 Admin dashboards & analytics
+
+🔄 Clear status workflow (Pending → In Progress → Resolved)
+
+🧭 Map-based issue visibility
+
+📈 Trackable resolution lifecycle
+
+The goal is to create a scalable, transparent, and accountable civic issue platform.
+
+
+
+GitHub Repository:
+https://github.com/javeed141/Civiq-Project-Javeed
+Live Demo:
+https://civiq-admin.vercel.app/
+
+Frontend Deployment:
+https://civiq-admin.vercel.app/
+
+Backend API:
+https://civiq.onrender.com
+
+
+

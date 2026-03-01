@@ -6,7 +6,7 @@ export const projectsData = [
     description:
       "AI-powered vehicle marketplace with secure authentication, user dashboards, dealership workflows, and Supabase PostgreSQL backend.",
     github: "https://github.com/javeed999/vehiql-ai",
-    image: "/project-imgs/vehiql.png"
+    image: "https://placehold.co/600x400/1c1917/f59e0b?text=Vehiql+AI"
   },
 
 
@@ -25,7 +25,7 @@ export const projectsData = [
     description:
       "Full-stack civic issue reporting platform with photo uploads, geolocation, lifecycle tracking, admin dashboards, analytics, and employee workflow modules.",
     github: "https://github.com/yourusername/CiviQ",
-    image: "/project-imgs/civiq.png"
+    image: "https://placehold.co/600x400/1c1917/f59e0b?text=CiviQ"
   },
   {
     name: "Student Performance Prediction System",
@@ -41,7 +41,7 @@ export const projectsData = [
     description:
       "End-to-end machine learning project to predict student academic performance using supervised learning. Includes data preprocessing, feature engineering, model training, evaluation, and Flask-based deployment for real-time predictions.",
     github: "https://github.com/javeed999/student-performance-prediction",
-    image: "/project-imgs/student-performance.png"
+    image: "https://placehold.co/600x400/1c1917/f59e0b?text=Student+Perf"
   },
   
   {
@@ -59,6 +59,6 @@ export const projectsData = [
     description:
       "Scheduling and workflow management system with conflict detection, role-based dashboards, Firebase authentication, and a Node.js backend with MongoDB.",
     github: "https://github.com/yourusername/Time-Management-Software",
-    image: "/project-imgs/tms.png"
+    image: "https://placehold.co/600x400/1c1917/f59e0b?text=TMS"
   }
 ];

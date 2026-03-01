@@ -9,22 +9,22 @@ export default function Footer() {
   const isDark = theme === "dark" || theme === true;
 
   const colors = {
-    bg: isDark ? "bg-[#0d1224]" : "bg-gray-100",
-    border: isDark ? "border-[#353951]" : "border-gray-300",
-    text: isDark ? "text-white" : "text-gray-800",
-    accent: isDark ? "text-[#16f2b3]" : "text-teal-600",
-    hover: isDark ? "hover:text-[#16f2b3]" : "hover:text-teal-600",
-    iconHover: isDark ? "hover:text-[#16f2b3]" : "hover:text-teal-700",
+    bg: isDark ? "bg-[#0c0a09]" : "bg-stone-100",
+    border: isDark ? "border-stone-800" : "border-stone-200",
+    text: isDark ? "text-white" : "text-stone-800",
+    accent: isDark ? "text-amber-400" : "text-violet-600",
+    hover: isDark ? "hover:text-amber-400" : "hover:text-violet-600",
+    iconHover: isDark ? "hover:text-amber-400" : "hover:text-violet-700",
     glow:
       isDark
-        ? "bg-gradient-to-r from-transparent via-violet-500 to-transparent"
-        : "bg-gradient-to-r from-transparent via-purple-300 to-transparent",
-    shadow: isDark ? "shadow-[0_0_20px_rgba(22,242,179,0.15)]" : "shadow-md",
+        ? "bg-gradient-to-r from-transparent via-amber-500/50 to-transparent"
+        : "bg-gradient-to-r from-transparent via-violet-400 to-transparent",
+    shadow: isDark ? "shadow-[0_0_20px_rgba(251,191,36,0.1)]" : "shadow-md",
   };
 
   return (
     <footer
-      className={`relative border-t ${colors.bg} ${colors.border} ${colors.text} mt-20`}
+      className={`relative border-t ${colors.bg} ${colors.border} ${colors.text} mt-6`}
     >
       {/* Top gradient line */}
       <div className="flex justify-center">

@@ -1,156 +1,179 @@
 "use client";
 
 import React, { useContext } from "react";
+import { BsGithub } from "react-icons/bs";
 import { projectsData } from "./projects-data";
 import ThemeContext from "../../context/ThemeContext";
+import Container from "../Container";
 
-/* -----------------------------------------------------------
-   PROJECT CARD (THEME-ONLY COLORS)
-   ⚠️ NO ALIGNMENT PROPERTIES WERE MODIFIED
------------------------------------------------------------ */
-const ProjectCard = ({ project }) => {
+const ProjectCard = ({ project, index }) => {
   const { theme } = useContext(ThemeContext);
   const isDark = theme === "dark" || theme === true;
-
-  // Perfect color palette for dark/light
-  const colors = {
-    cardBg: isDark
-      ? "from-[#0d1224] to-[#0a0d37] border-[#1b2c68a0]"
-      : "from-white to-gray-100 border-gray-300",
-
-    title: isDark ? "text-[#16f2b3]" : "text-purple-700",
-
-    keyword: isDark ? "text-pink-400" : "text-pink-600",
-    varName: isDark ? "text-white" : "text-gray-800",
-    bracket: isDark ? "text-gray-400" : "text-gray-600",
-    string: isDark ? "text-amber-300" : "text-yellow-700",
-    role: isDark ? "text-orange-400" : "text-orange-700",
-    desc: isDark ? "text-cyan-300" : "text-blue-600",
-  };
+  const isEven = index % 2 === 0;
 
   return (
     <div
-      className={`relative w-full rounded-lg border bg-gradient-to-r ${colors.cardBg}`}
+      className={`group relative grid grid-cols-1 lg:grid-cols-2 gap-0 rounded-2xl overflow-hidden border transition-all duration-300 hover:-translate-y-1 ${
+        isDark
+          ? "bg-stone-900/50 border-stone-800 hover:border-amber-500/30"
+          : "bg-white border-stone-200 hover:border-violet-300 shadow-sm hover:shadow-lg"
+      }`}
     >
-      {/* Top gradient bar */}
-      <div className="flex flex-row">
-        <div className="h-[1px] w-full bg-gradient-to-r from-transparent via-pink-500 to-violet-600"></div>
-        <div className="h-[1px] w-full bg-gradient-to-r from-violet-600 to-transparent"></div>
-      </div>
-
-      {/* Header */}
-      <div className="px-4 lg:px-8 py-3 lg:py-5 relative">
-        <div className="flex flex-row space-x-2 absolute top-1/2 -translate-y-1/2">
-          <span className="h-3 w-3 rounded-full bg-red-400"></span>
-          <span className="h-3 w-3 rounded-full bg-orange-400"></span>
-          <span className="h-3 w-3 rounded-full bg-green-200"></span>
+      {/* Visual Side — project image with overlay */}
+      <div
+        className={`relative h-48 sm:h-56 lg:h-auto lg:min-h-[280px] overflow-hidden ${
+          isEven ? "lg:order-1" : "lg:order-2"
+        }`}
+      >
+        {/* Project image */}
+        <img
+          src={project.image}
+          alt={project.name}
+          className="absolute inset-0 w-full h-full object-cover"
+          onError={(e) => {
+            e.target.style.display = "none";
+          }}
+        />
+        {/* Gradient overlay */}
+        <div
+          className={`absolute inset-0 ${
+            isDark
+              ? "bg-gradient-to-t from-stone-900 via-stone-900/40 to-transparent"
+              : "bg-gradient-to-t from-white via-white/30 to-transparent"
+          }`}
+        />
+        {/* Project number watermark */}
+        <span
+          className={`absolute top-4 left-5 text-[80px] sm:text-[100px] font-black leading-none select-none ${
+            isDark ? "text-amber-500/10" : "text-violet-500/10"
+          }`}
+        >
+          0{index + 1}
+        </span>
+        {/* Floating tool badges */}
+        <div className="absolute bottom-4 left-5 right-5 flex flex-wrap gap-2">
+          {project.tools.slice(0, 4).map((tool, i) => (
+            <span
+              key={i}
+              className={`text-[11px] px-2.5 py-1 rounded-full font-medium backdrop-blur-md ${
+                isDark
+                  ? "bg-amber-500/15 text-amber-300 border border-amber-500/20"
+                  : "bg-violet-500/10 text-violet-700 border border-violet-300/40"
+              }`}
+            >
+              {tool}
+            </span>
+          ))}
+          {project.tools.length > 4 && (
+            <span
+              className={`text-[11px] px-2.5 py-1 rounded-full font-medium ${
+                isDark ? "text-stone-400" : "text-stone-500"
+              }`}
+            >
+              +{project.tools.length - 4}
+            </span>
+          )}
         </div>
-
-        <p className={`text-center ml-10 text-sm sm:text-xl ${colors.title}`}>
-          {project.name}
-        </p>
       </div>
 
-      {/* Body */}
-      <div className="overflow-hidden border-t-[2px] border-indigo-900 px-4 lg:px-8 py-4 lg:py-8">
-        <code className="font-mono text-xs md:text-sm lg:text-base leading-relaxed">
+      {/* Content Side */}
+      <div
+        className={`p-6 sm:p-8 flex flex-col justify-center ${
+          isEven ? "lg:order-2" : "lg:order-1"
+        }`}
+      >
+        {/* Role badge */}
+        <span
+          className={`inline-block w-fit text-xs font-semibold uppercase tracking-wider mb-3 px-3 py-1 rounded-full ${
+            isDark
+              ? "bg-amber-500/10 text-amber-400"
+              : "bg-violet-100 text-violet-600"
+          }`}
+        >
+          {project.role}
+        </span>
 
-          <div>
-            <span className={colors.keyword}>const</span>{" "}
-            <span className={colors.varName}>project</span> ={" "}
-            <span className={colors.bracket}>{"{"}</span>
-          </div>
+        {/* Title */}
+        <h3
+          className={`text-xl sm:text-2xl font-bold mb-3 ${
+            isDark ? "text-white" : "text-stone-900"
+          }`}
+        >
+          {project.name}
+        </h3>
 
-         <div>
-  <span className={`ml-6 mr-2 ${colors.label}`}>name:</span>
-  <span className={colors.string}>'{project.name}'</span>,
-</div>
+        {/* Description */}
+        <p
+          className={`text-sm sm:text-base leading-relaxed mb-6 ${
+            isDark ? "text-stone-400" : "text-stone-500"
+          }`}
+        >
+          {project.description}
+        </p>
 
-<div>
-  <span className={`ml-6 mr-2 ${colors.label}`}>tools:</span>
-  <span className={colors.bracket}>[</span>
-  {project.tools.map((tag, i) => (
-    <span key={i} className={colors.string}>
-      '{tag}'
-      {i < project.tools.length - 1 && (
-        <span className={colors.bracket}>, </span>
-      )}
-    </span>
-  ))}
-  <span className={colors.bracket}>],</span>
-</div>
-
-<div>
-  <span className={`ml-6 mr-2 ${colors.label}`}>myRole:</span>
-  <span className={colors.role}>{project.role}</span>,
-</div>
-
-<div>
-  <span className={`ml-6 mr-2 ${colors.label}`}>description:</span>
-  <span className={colors.desc}>{project.description}</span>,
-</div>
-
-
-          <div>
-            <span className={colors.bracket}>{"};"}</span>
-          </div>
-
-        </code>
+        {/* Links */}
+        <div className="flex items-center gap-4 mt-auto">
+          {project.github && (
+            <a
+              href={project.github}
+              target="_blank"
+              rel="noreferrer"
+              className={`inline-flex items-center gap-2 text-sm font-medium px-4 py-2 rounded-full border transition-all ${
+                isDark
+                  ? "text-amber-400 border-amber-500/30 hover:bg-amber-500/10"
+                  : "text-violet-600 border-violet-300 hover:bg-violet-50"
+              }`}
+            >
+              <BsGithub size={16} />
+              Source Code
+            </a>
+          )}
+        </div>
       </div>
     </div>
   );
 };
 
-/* -----------------------------------------------------------
-   PROJECTS PAGE (THEME-ONLY COLORS)
-   ⚠️ ALIGNMENT PRESERVED 100%
------------------------------------------------------------ */
 const Projects = () => {
   const { theme } = useContext(ThemeContext);
   const isDark = theme === "dark" || theme === true;
 
   return (
-    <div
-  id="projects"
-  className="relative my-10 md:my-16 px-4 sm:px-6 lg:px-0 z-10"
->
-
-      {/* STICKY HEADING */}
-      <div className="sticky top-16 z-30 pb-6 lg:pb-10">
-        
-        {/* Glow (only in dark mode) */}
-        {isDark && (
-          <div className="w-[90px] h-[90px] bg-purple-500/30 rounded-full absolute -top-6 left-1/2 -translate-x-1/2 blur-3xl"></div>
-        )}
-
-        {/* Title */}
-        <div className="flex justify-center relative">
+    <section id="projects" className="py-12 md:py-16 relative">
+      <Container>
+        {/* Section Header */}
+        <div className="text-center mb-10">
           <span
-            className={`px-5 py-3 text-lg sm:text-xl rounded-md shadow-lg ${
-              isDark
-                ? "bg-[#1a1443] text-white"
-                : "bg-purple-200 text-purple-800"
+            className={`inline-block text-xs font-semibold uppercase tracking-[0.2em] mb-3 ${
+              isDark ? "text-amber-400" : "text-violet-600"
             }`}
           >
-            PROJECTS
+            Portfolio
           </span>
+          <h2
+            className={`text-3xl sm:text-4xl md:text-5xl font-bold ${
+              isDark ? "text-white" : "text-stone-900"
+            }`}
+          >
+            Featured Projects
+          </h2>
+          <p
+            className={`mt-3 text-base max-w-xl mx-auto ${
+              isDark ? "text-stone-400" : "text-stone-500"
+            }`}
+          >
+            A selection of projects that showcase my skills and passion for building.
+          </p>
         </div>
-      </div>
 
-      {/* PROJECT CARDS */}
-      <div className="pt-10 sm:pt-14">
-        <div className="flex flex-col gap-10 sm:gap-14">
+        {/* Projects List — alternating layout */}
+        <div className="flex flex-col gap-8 sm:gap-10">
           {projectsData.map((project, index) => (
-            <div
-              key={index}
-              className="sticky top-40 sm:top-48 w-full mx-auto max-w-md sm:max-w-xl lg:max-w-2xl"
-            >
-              <ProjectCard project={project} />
-            </div>
+            <ProjectCard key={index} project={project} index={index} />
           ))}
         </div>
-      </div>
-    </div>
+      </Container>
+    </section>
   );
 };
 
